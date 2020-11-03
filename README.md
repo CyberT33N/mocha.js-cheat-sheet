@@ -18,6 +18,49 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 <br />
 <br />
 
+# it
+```javascript
+it('Should return 1', async() => {
+    expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+});
+```
+
+# describe
+```javascript
+describe('storeMessages()', () => {
+
+  it('Should return 1', async() => {
+    expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+  });
+
+});
+```
+
+
+# skip test (works with id and describe)
+```javascript
+// method #1 (xit)
+xit('Should return 1', async() => {
+   expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+});
+
+// method #2 (skip)
+it.skip('Should return 1', async() => {
+   expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+});
+```
+
+<br />
+<br />
+
+
+ _____________________________________________________
+ _____________________________________________________
+
+
+<br />
+<br />
+
 # Expect (https://jestjs.io/docs/en/expect)
 ```bash
 npm i expect --save-dev
