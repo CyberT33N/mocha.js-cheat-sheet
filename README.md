@@ -23,6 +23,8 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 npm i expect --save-dev
 ```
 ```javascript
+const expect = require('expect');
+
 const add = (a, b) => a + b;
 expect( add(2, 3) ).toBe(5);
 ```
