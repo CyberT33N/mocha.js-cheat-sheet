@@ -50,6 +50,14 @@ it.skip('Should return 1', async() => {
 });
 ```
 
+# run only 1 specific test and ignore other 
+```javascript
+describe('feature 1', function() {});
+describe.only('feature 2', function() {});
+describe('feature 3', function() {});
+// Only the feature 2 block would run in this case.
+```
+
 <br />
 <br />
 
