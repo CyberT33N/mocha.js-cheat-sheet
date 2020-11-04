@@ -26,7 +26,7 @@ npm i -g nodemon
 
 ## Use nodemon with test
 ```javascript
-// mocha **/*.test.js will detect any file that ends with .test.js
+// mocha **/*.test.js will detect any file that ends with .test.js! This means multiple files can be tested this way
 // --timeout 0 means no timeout for any it/describe block. This is usefully when you got long async calls and have to wait.
 // --exit will exit the script after all tests are done
 // nodemon is a live watcher package that will detect changes in our files and restart the test
