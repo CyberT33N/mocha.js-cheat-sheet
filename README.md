@@ -1,4 +1,4 @@
-# mocha.js-cheat-sheet (https://mochajs.org/)
+# Mocha.js Cheat Sheet (https://mochajs.org/)
 Mocha.js (Unit Testing) Cheat Sheet with the most needes stuff..
 
 
@@ -20,7 +20,7 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 
 # Dependencies
 ```bash
-npm i --save-dev expect mocha mocha-suppress-logs
+npm i --save-dev expect mocha
 npm i -g nodemon
 ```
 
