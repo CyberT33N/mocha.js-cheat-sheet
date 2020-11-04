@@ -27,7 +27,7 @@ npm i -g nodemon
 ## Use nodemon with test
 ```javascript
 "scripts": {
-  "test": "mocha test.js",
+  "test": "mocha yourfile.test.js --timeout 0",
   "test-watch": "nodemon --exec \"npm test\""
 }
 ```
