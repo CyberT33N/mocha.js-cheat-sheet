@@ -18,6 +18,36 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 <br />
 <br />
 
+# Dependencies
+```bash
+npm i --save-dev expect mocha mocha-suppress-logs
+npm i -g nodemon
+```
+
+## Use nodemon with test
+```javascript
+"scripts": {
+  "test": "mocha test.js",
+  "test-watch": "nodemon --exec \"npm test\""
+}
+```
+```bash
+npm run test-watch
+```
+
+
+
+<br />
+<br />
+
+
+ _____________________________________________________
+ _____________________________________________________
+
+
+<br />
+<br />
+
 # it
 ```javascript
 it('Should return 1', async() => {
