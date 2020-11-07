@@ -52,14 +52,14 @@ npm run test-watch
 <br />
 <br />
 
-# it
+# it (work with async)
 ```javascript
 it('Should return 1', async() => {
     expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
 });
 ```
 
-# describe
+# describe (does not work with async)
 ```javascript
 describe('storeMessages()', () => {
 
