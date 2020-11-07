@@ -18,6 +18,28 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 <br />
 <br />
 
+## Export results to HTML (https://www.npmjs.com/package/mochawesome)
+```javascript
+  "scripts": {
+    "test": "mocha **/*.test.js --timeout 0 --exit --reporter mochawesome",
+    "test-watch": "nodemon --exec \"npm test\""
+  },
+  "nodemonConfig": {
+     "ignore": ["mochawesome-report/*"]
+  }
+```
+
+<br />
+<br />
+
+
+ _____________________________________________________
+ _____________________________________________________
+
+
+<br />
+<br />
+
 # Dependencies
 ```bash
 npm i --save-dev expect mocha
