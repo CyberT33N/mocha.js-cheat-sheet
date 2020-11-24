@@ -145,6 +145,8 @@ describe('feature 3', function() {});
 
 
 # Client Side
+
+## ESM
 ```html
 <!DOCTYPE html>
 <html lang="en">
