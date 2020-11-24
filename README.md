@@ -171,7 +171,7 @@ describe('feature 3', function() {});
     <!-- lib packages -->
     <script src="js/lib/axios.min.js"></script>
 
-    <!-- custom files -->
+    <!-- test files -->
     <script type="module" src="js/utils/test.main.mjs"></script>
 
     <!-- mocha INIT -->
