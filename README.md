@@ -136,3 +136,70 @@ describe.only('feature 2', function() {});
 describe('feature 3', function() {});
 // Only the feature 2 block would run in this case.
 ```
+
+
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+
+# Client Side
+```html
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="css/lib/mocha.css"/>
+  </head>
+  <body>
+    <div id="mocha"></div>
+
+    <!-- mocha files -->
+    <script src="js/lib/chai.js"></script>
+    <script src="js/lib/mocha.js"></script>
+    <script class="mocha-init">mocha.setup('bdd')</script>
+
+    <!-- TDD -->
+    <script src="js/lib/expect.min.js"></script>
+
+    <!-- lib packages -->
+    <script src="js/lib/axios.min.js"></script>
+
+    <!-- custom files -->
+    <script type="module" src="js/utils/test.main.mjs"></script>
+
+    <!-- mocha INIT -->
+    <script class="mocha-init" type="module">mocha.checkLeaks();</script>
+    <script class="mocha-exec" type="module">mocha.run();</script>
+
+  </body>
+</html>
+```
+
+```javascript
+// test.main.mjs
+import * as req from '/js/req.mjs';
+
+describe('getUserDetails() - POST', ()=>{
+
+  it('Should return data object with key _id', async()=>{
+    const r = await req.getUserDetails('mocha');
+    console.log('Simulate correct token - result: ' + JSON.stringify(r, null, 4));
+
+    expect( r?.data ).toEqual(expect.objectContaining({ _id: expect.anything() }));
+  });
+
+});
+```
+
+```javascript
+// req.mjs
+export const getUserDetails = async (token)=>{ console.log( 'getUserDetails() - token: ' + token + '\nHost: ' + window.location.origin );
+  return await axios.post(  window.location.origin + '/api/getUserDetails', { usertoken: token  }, {
+    headers: { authorization: 'sample_auth_token..' }
+  });
+};
+```
