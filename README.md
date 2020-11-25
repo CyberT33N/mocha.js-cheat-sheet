@@ -14,13 +14,17 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
  _____________________________________________________
  _____________________________________________________
 
-
 <br />
 <br />
 
 ## Export results to HTML (https://www.npmjs.com/package/mochawesome)
 ```javascript
-  "scripts": {
+// **/*.test.js <-- Match any file that end with .test.js
+// --timeout 0 <-- disable timeout this is usefully for long async scripts. However it will be general for all unit tests.
+// --exit <-- exit the script. usefully for automated runs where you need to know when test is finished.
+// --reporter mochawesome <-- print the results to HTML
+
+"scripts": {
     "test": "mocha **/*.test.js --timeout 0 --exit --reporter mochawesome",
     "test-watch": "nodemon --exec \"npm test\""
   },
@@ -63,16 +67,10 @@ npm run test-watch
 
 
 
-<br />
-<br />
-
-
+<br><br>
  _____________________________________________________
  _____________________________________________________
-
-
-<br />
-<br />
+<br><br>
 
 # it (work with async)
 ```javascript
@@ -80,6 +78,13 @@ it('Should return 1', async() => {
     expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
 });
 ```
+
+## timeout (Default is 2 seconds)
+```javascript
+it('Some test', () => { /*..*/ }).timeout(5000)
+```
+
+<br><br>
 
 # describe (does not work with async)
 ```javascript
