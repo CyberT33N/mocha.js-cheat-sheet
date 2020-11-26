@@ -23,9 +23,10 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 // --timeout 0 <-- disable timeout this is usefully for long async scripts. However it will be general for all unit tests.
 // --exit <-- exit the script. usefully for automated runs where you need to know when test is finished.
 // --reporter mochawesome <-- print the results to HTML
+// --parallel <-- runs tests parallel
 
 "scripts": {
-    "test": "mocha **/*.test.js --timeout 0 --exit --reporter mochawesome",
+    "test": "mocha **/*.test.js --timeout 0 --exit --reporter mochawesome --parallel",
     "test-watch": "nodemon --exec \"npm test\""
   },
   "nodemonConfig": {
