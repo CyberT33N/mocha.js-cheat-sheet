@@ -19,8 +19,9 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 
 ## Export results to HTML (https://www.npmjs.com/package/mochawesome)
 ```javascript
-/* ## mocha.js ##
-**/*.test.js <-- Match any file that end with .test.js
+// ## mocha.js ##
+// **/*.test.js <-- Match any file that end with .test.js
+/* 
 --timeout 0 <-- disable timeout this is usefully for long async scripts. However it will be general for all unit tests.
 --exit <-- exit the script. usefully for automated runs where you need to know when test is finished.
 --parallel <-- runs tests parallel
