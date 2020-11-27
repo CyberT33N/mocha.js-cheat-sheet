@@ -19,14 +19,19 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 
 ## Export results to HTML (https://www.npmjs.com/package/mochawesome)
 ```javascript
-// **/*.test.js <-- Match any file that end with .test.js
-// --timeout 0 <-- disable timeout this is usefully for long async scripts. However it will be general for all unit tests.
-// --exit <-- exit the script. usefully for automated runs where you need to know when test is finished.
-// --reporter mochawesome <-- print the results to HTML
-// --parallel <-- runs tests parallel
+/* ## mocha.js ##
+**/*.test.js <-- Match any file that end with .test.js
+--timeout 0 <-- disable timeout this is usefully for long async scripts. However it will be general for all unit tests.
+--exit <-- exit the script. usefully for automated runs where you need to know when test is finished.
+--parallel <-- runs tests parallel
+
+## mochawesome
+--reporter mochawesome <-- print the results to HTML
+--reporter-options reportDir=./website/report <-- Set custom directory for export of the HTML files. default will be root directory.
+*/
 
 "scripts": {
-    "test": "mocha **/*.test.js --timeout 0 --exit --reporter mochawesome --parallel",
+    "test": "mocha **/*.test.js --timeout 0 --exit --parallel --reporter mochawesome --reporter-options reportDir=./website/report",
     "test-watch": "nodemon --exec \"npm test\""
   },
   "nodemonConfig": {
