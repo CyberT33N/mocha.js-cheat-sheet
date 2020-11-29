@@ -28,7 +28,7 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 
 ## mochawesome
 --reporter mochawesome <-- print the results to HTML
---reporter-options reportDir=./website/report <-- Set custom directory for export of the HTML files. default will be root directory.
+--reporter-options reportDir=./website/report,reportFilename=server <-- Set custom directory for export of the HTML files. default will be root directory. Also we can define custom name for the file by using reportFilename.
 */
 
 "scripts": {
