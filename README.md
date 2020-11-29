@@ -109,25 +109,28 @@ describe('storeMessages()', () => {
 
 # before, beforeEach, after, afterEach
 ```javascript
-describe('hooks', function() {
+describe('some test here..', ()=>{
 
-    before(function() {
-        // runs before all tests in this file regardless where this line is defined.
-    });
+    // runs before all tests in this file regardless where this line is defined.
+    before(()=>{ /*..*/ });
+    
+    // if you want to run async inside of before you need to call done at the end.
+    before(done=>{(async()=>{
+      // do something..
+      done();
+    })()});
+    
+    beforeEach(()=>{ /*..*/ });
 
-    after(function() {
-        // runs after all tests in this file
-    });
-
-    beforeEach(function() {
-        // runs before each test in this block
-    });
-
-    afterEach(function() {
-        // runs after each test in this block
-    });
 
     // it test cases here..
+
+
+    after(()=>{ /*..*/ });
+
+    afterEach(()=>{ /*..*/ });
+
+
 });
 ```
 
