@@ -62,7 +62,7 @@ npm i -g nodemon
 /*
 --timeout 0 <-- means no timeout for any it/describe block. This is usefully when you got long async calls and have to wait.
 --exit  <-- will exit the script after all tests are done
---ignore 'website/report' <-- will ignore any files/folder to prevent reload when files change there
+--ignore 'website/report/*' <-- will ignore any files/folder to prevent reload when files change there
 */
 
 // nodemon is a live watcher package that will detect changes in our files and restart the test
