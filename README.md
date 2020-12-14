@@ -20,7 +20,9 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 ## Export results to HTML (https://www.npmjs.com/package/mochawesome)
 ```javascript
 // ## mocha.js ##
-// **/*.test.js <-- Match any file that end with .test.js
+// mocha **/*.test.js <-- Match any file that end with .test.js
+// mocha ./utils --recursive <-- Match all files in folder recursive
+
 /* 
 --timeout 0 <-- disable timeout this is usefully for long async scripts. However it will be general for all unit tests.
 --exit <-- exit the script. usefully for automated runs where you need to know when test is finished.
@@ -32,7 +34,7 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 */
 
 "scripts": {
-    "test": "mocha **/*.test.js --timeout 0 --exit --parallel --reporter mochawesome --reporter-options reportDir=./website/report",
+    "test": "mocha ./utils --recursive --timeout 0 --exit --parallel --reporter mochawesome --reporter-options reportDir=./website/report",
     "test-watch": "nodemon --exec \"npm test\""
   },
   "nodemonConfig": {
@@ -68,7 +70,7 @@ npm i -g nodemon
 
 // nodemon is a live watcher package that will detect changes in our files and restart the test
 "scripts": {
-  "test": "mocha **/*.test.js --timeout 0 --exit",
+  "test": "mocha ./utils --recursive --timeout 0 --exit",
   "test-watch": "nodemon -e js,html,yml --ignore 'website/report' --exec \"npm test\""
 }
 ```
