@@ -92,6 +92,8 @@ it('Should return 1', async() => {
 });
 ```
 
+<br><br>
+
 ## timeout (Default is 2 seconds)
 ```javascript
 it('Some test', () => { /*..*/ }).timeout(5000)
@@ -109,6 +111,8 @@ describe('storeMessages()', () => {
 
 });
 ```
+
+<br><br>
 
 # before, beforeEach, after, afterEach
 ```javascript
@@ -137,6 +141,30 @@ describe('some test here..', ()=>{
 });
 ```
 
+
+<br><br>
+
+# global variables
+```javascript
+describe('Client Side Services', ()=> {
+  before(done=>{(async ()=>{
+    global.pptr = await new Init().getPPTR();
+  })().catch(e=>{log('client.test.mjs - BEFORE() - Error: ' + e);});});
+
+
+  it('Client Side test success - .finish-test should exist', async ()=>{
+    expect(
+        await pptr.page.waitForSelector('.finish-test', {
+          visible: true, timeout: 0,
+        }), // await pptr.page.waitForSelector('.finish-test', {
+    ).toBeTruthy(); // expect(
+  }); // it('Client Side test success - .finish-test should exist', async ()=>{
+}); // describe('Client Side Services', ()=>{
+```
+
+<br><br>
+
+
 # skip test (works with id and describe)
 ```javascript
 // method #1 (xit)
@@ -149,6 +177,7 @@ it.skip('Should return 1', async() => {
    expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
 });
 ```
+
 
 # run only 1 specific test and ignore other 
 ```javascript
