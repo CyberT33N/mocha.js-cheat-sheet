@@ -85,32 +85,64 @@ npm run test-watch
  _____________________________________________________
 <br><br>
 
-# it (work with async)
+# it
 ```javascript
+// sync
+it('Should return 1', () => {
+  expect(number).toBe( 1 );
+});
+
+// await
 it('Should return 1', async() => {
-    expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+  expect(await storeMessages({"msg": 'test'})).toBe( 1 );
+});
+
+// multiple expect
+it('Should return 1', async() => {
+  expect(anyTest()).toBe(1337);
+  expect(await storeMessages({"msg": 'test'})).toBe( 1 );
 });
 ```
 
-<br><br>
-
-## timeout (Default is 2 seconds)
-```javascript
-it('Some test', () => { /*..*/ }).timeout(5000)
-```
 
 <br><br>
 
 # describe (does not work with async)
 ```javascript
 describe('storeMessages()', () => {
-
   it('Should return 1', async() => {
     expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
   });
-
 });
 ```
+
+
+## Only run 1 describe block (.only)
+```javascript
+describe.only('storeMessages()', () => {
+  it('Should return 1', async() => {
+    expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+  });
+});
+```
+
+
+
+
+
+
+
+
+
+
+
+<br><br><br><br>
+
+## timeout (Default is 2 seconds)
+```javascript
+it('Some test', () => { /*..*/ }).timeout(5000)
+```
+
 
 <br><br>
 
