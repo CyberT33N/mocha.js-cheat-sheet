@@ -104,8 +104,26 @@ it('Should return 1', async() => {
 });
 ```
 
+## skip it test
+```javascript
+// method #1 (xit)
+xit('Should return 1', async() => {
+   expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+});
 
-<br><br>
+// method #2 (skip)
+it.skip('Should return 1', async() => {
+   expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
+});
+```
+
+
+
+
+
+
+
+<br><br><br><br>
 
 # describe (does not work with async)
 ```javascript
@@ -115,15 +133,25 @@ describe('storeMessages()', () => {
   });
 });
 ```
+<br><br>
 
 
-## Only run 1 describe block (.only)
+# skip describe block
 ```javascript
-describe.only('storeMessages()', () => {
+describe.skip('storeMessages()', () => {
   it('Should return 1', async() => {
     expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
   });
 });
+```
+<br><br>
+
+## Only run 1 describe block (.only)
+```javascript
+describe('feature 1', function() {});
+describe.only('feature 2', function() {});
+describe('feature 3', function() {});
+// Only the feature 2 block would run in this case.
 ```
 
 
@@ -194,30 +222,42 @@ describe('Client Side Services', ()=> {
 }); // describe('Client Side Services', ()=>{
 ```
 
-<br><br>
 
 
-# skip test (works with id and describe)
-```javascript
-// method #1 (xit)
-xit('Should return 1', async() => {
-   expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
-});
-
-// method #2 (skip)
-it.skip('Should return 1', async() => {
-   expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
-});
-```
 
 
-# run only 1 specific test and ignore other 
-```javascript
-describe('feature 1', function() {});
-describe.only('feature 2', function() {});
-describe('feature 3', function() {});
-// Only the feature 2 block would run in this case.
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br><br>
