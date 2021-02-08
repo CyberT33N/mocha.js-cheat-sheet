@@ -7,15 +7,29 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 
 
 
-<br />
-<br />
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
  _____________________________________________________
  _____________________________________________________
-
-<br />
-<br />
+<br><br>
 
 ## Export results to HTML (https://www.npmjs.com/package/mochawesome)
 ```javascript
@@ -42,16 +56,38 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
   }
 ```
 
-<br />
-<br />
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
  _____________________________________________________
  _____________________________________________________
-
-
-<br />
-<br />
+<br><br>
 
 # Dependencies
 ```bash
@@ -77,6 +113,36 @@ npm i -g nodemon
 ```bash
 npm run test-watch
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -128,6 +194,8 @@ it.skip('Should return 1', async() => {
 # describe (does not work with async)
 ```javascript
 describe('storeMessages()', () => {
+  const anyGlobalVariableForThisDescribeBlock = true;
+
   it('Should return 1', async() => {
     expect( await storeMessages({"msg": 'test'}) ).toBe( 1 );
   });
