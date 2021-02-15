@@ -234,9 +234,17 @@ describe('feature 3', function() {});
 
 <br><br><br><br>
 
-## timeout (Default is 2 seconds)
+## timeout
+- Default is 2 seconds
 ```javascript
+// Method #1
 it('Some test', () => { /*..*/ }).timeout(5000)
+
+// Method #2
+it('accesses the network', function(done){
+  this.timeout(500);
+  /*..*/ 
+})
 ```
 
 
