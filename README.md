@@ -258,32 +258,84 @@ describe('[PUPPETEER] Stress/stability tests', function () {
 
 <br><br>
 
-# before, beforeEach, after, afterEach
+# before
 ```javascript
 describe('some test here..', ()=>{
-
     // runs before all tests in this file regardless where this line is defined.
     before(()=>{ /*..*/ });
+
+
+    // if you want to run async/use promise inside of before you need to call done at the end.
+    // method #1
+    before(done=>{
+     (async()=>{
+       // do something..
+       done();
+     })()
+    });
     
-    // if you want to run async inside of before you need to call done at the end.
-    before(done=>{(async()=>{
-      // do something..
-      done();
-    })()});
+    // method #2
+    before(done=>{
+     (async()=>{
+       // do something..
+     })()
+    }).catch(done);
     
-    beforeEach(()=>{ /*..*/ });
-
-
-    // it test cases here..
-
-
-    after(()=>{ /*..*/ });
-
-    afterEach(()=>{ /*..*/ });
-
-
+    // method #3
+    before(done=>{
+     (async()=>{
+       // do something..
+     })()
+    }).then(done, done)
 });
 ```
+
+<br><br>
+
+# beforeEach
+```javascript
+describe('some test here..', ()=>{
+    beforeEach(()=>{ /*..*/ });
+    
+    // it test cases here..
+});
+```
+
+<br><br>
+
+# after
+```javascript
+describe('some test here..', ()=>{
+    after(()=>{ /*..*/ });
+});
+```
+
+
+
+<br><br>
+
+# afterEach
+```javascript
+describe('some test here..', ()=>{
+    afterEach(()=>{ /*..*/ });
+});
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br><br>
