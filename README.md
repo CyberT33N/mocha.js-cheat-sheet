@@ -279,14 +279,7 @@ describe('some test here..', ()=>{
      (async()=>{
        // do something..
      })()
-    }).catch(done);
-    
-    // method #3
-    before(done=>{
-     (async()=>{
-       // do something..
-     })()
-    }).then(done, done)
+    }).then(done).catch(done) 
 });
 ```
 
