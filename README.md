@@ -236,15 +236,23 @@ describe('feature 3', function() {});
 
 ## timeout
 - Default is 2 seconds
+- **You can not use arrow functions with this.timeout**
 ```javascript
 // Method #1
 it('Some test', () => { /*..*/ }).timeout(5000)
+describe('Some test', () => { /*..*/ }).timeout(5000)
+
 
 // Method #2
 it('accesses the network', function(done){
   this.timeout(500);
   /*..*/ 
-})
+});
+
+describe('[PUPPETEER] Stress/stability tests', function () {
+    this.timeout(60000 * 5)
+    /*..*/ 
+});
 ```
 
 
