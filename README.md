@@ -288,9 +288,25 @@ describe('some test here..', ()=>{
 # beforeEach
 ```javascript
 describe('some test here..', ()=>{
-    beforeEach(()=>{ /*..*/ });
+    // runEachs before all tests in this file regardless where this line is defined.
+    before(()=>{ /*..*/ });
+
+
+    /* if you want to run async/use promise inside of beforeEach you need to call done at the end. */
+    // method #1
+    beforeEach(done=>{
+     (async()=>{
+       // do something..
+       done();
+     })()
+    });
     
-    // it test cases here..
+    // method #2
+    beforeEach(done=>{
+     (async()=>{
+       // do something..
+     })()
+    }).then(done).catch(done) 
 });
 ```
 
