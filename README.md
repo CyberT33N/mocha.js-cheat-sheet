@@ -473,3 +473,108 @@ export const getUserDetails = async (token)=>{ console.log( 'getUserDetails() - 
   });
 };
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+
+# Leche (https://github.com/box/leche)
+
+<br><br>
+
+
+## withData
+- You can use withData to import strings, objects, classes etc. to test your describe block with multiple different scenarios
+```javascript
+const leche = require('leche')
+const withData = leche.withData
+
+describe.only('ROOT DESCRIBE BLOCK', function () {
+  withData([puppeteer, playwright], framework => {
+    const frameworkName = framework.constructor.name
+
+    describe('Any Tests..', () => {
+      it('should fire disconnect listener', async () => {
+        if(frameworkName == 'puppeteer') expect(anyStuff).to.equal(true)
+        else expect(anyStuff).to.equal(false)
+      })
+    })
+  })
+})
+```
