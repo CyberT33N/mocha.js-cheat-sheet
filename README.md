@@ -561,6 +561,7 @@ export const getUserDetails = async (token)=>{ console.log( 'getUserDetails() - 
 
 ## withData
 - You can use withData to import strings, objects, classes etc. to test your describe block with multiple different scenarios
+- *IMPORTANT* - As it seems withData is not working with *before* & *beforeEach*. For this case you can use the second code example.
 ```javascript
 const leche = require('leche')
 const withData = leche.withData
@@ -576,5 +577,15 @@ describe.only('ROOT DESCRIBE BLOCK', function () {
       })
     })
   })
+})
+
+
+// This will not run in parallel as withData but it supports before & beforeEach.
+['puppeteer', 'playwright'].forEach(browserServiceName => {
+   describe('Any Tests..', () => {
+     it('should fire disconnect listener', async () => {
+       if(browserServiceName == 'puppeteer') expect(anyStuff).to.equal(true)
+       else expect(anyStuff).to.equal(false)
+    })
 })
 ```
