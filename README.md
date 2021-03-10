@@ -588,4 +588,14 @@ describe.only('ROOT DESCRIBE BLOCK', function () {
        else expect(anyStuff).to.equal(false)
     })
 })
+
+
+// or with for loop
+for(const browserServiceName of ['puppeteer', 'playwright']) {
+   describe('Any Tests..', () => {
+     it('should fire disconnect listener', async () => {
+       if(browserServiceName == 'puppeteer') expect(anyStuff).to.equal(true)
+       else expect(anyStuff).to.equal(false)
+    })
+}
 ```
