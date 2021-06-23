@@ -305,8 +305,8 @@ describe('some test here..', ()=>{
     beforeEach(done=>{
      (async()=>{
        // do something..
-     })()
-    }).then(done).catch(done) 
+     })().then(done).catch(done)
+    })
 });
 ```
 
