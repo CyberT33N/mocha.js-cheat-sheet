@@ -253,6 +253,9 @@ describe('[PUPPETEER] Stress/stability tests', function () {
     this.timeout(60000 * 5)
     /*..*/ 
 });
+
+// Method #3
+mocha test/integration/**/*.test.js --exit --timeout=30000 --recursive
 ```
 
 
@@ -279,7 +282,18 @@ describe('some test here..', ()=>{
      (async()=>{
        // do something..
      })()
-    }).then(done).catch(done) 
+    }).then(done).catch(done)
+    
+    // method #3 - return promise
+    before(async() => {
+      try{
+          console.log('disconnecting from mongoose')
+          return await mongoose.disconnect()
+      }catch(error){
+          console.error(error)
+          throw error
+      }
+    })
 });
 ```
 
@@ -306,6 +320,17 @@ describe('some test here..', ()=>{
      (async()=>{
        // do something..
      })().then(done).catch(done)
+    })
+    
+    // method #3 - return promise
+    beforeEach(async() => {
+      try{
+          console.log('disconnecting from mongoose')
+          return await mongoose.disconnect()
+      }catch(error){
+          console.error(error)
+          throw error
+      }
     })
 });
 ```
