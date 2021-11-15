@@ -139,6 +139,83 @@ npm run test-watch
 
 
 
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+# Execute other tests from inside of current test
+```bash
+// apple.test.js
+import internalTests from './internalTests.js'
+
+describe.only('[---- Apple ----]', () => {
+    const search = 'german'
+    internalTests(search)
+
+    describe('searchVideo', () => {
+        it('should search videos with specific params', async() => {
+            // ..
+        })
+    })
+}
+
+
+
+
+// internalTests.js
+const internalTests = search => {
+    describe('[---- Internal DB ----]', () => {
+        describe('_validateCfg', () => {
+            it('should throw error because params are not valid', async() => {
+                // console.log(search)
+            })
+        })
+    })
+}
+
+export default internalTests
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
