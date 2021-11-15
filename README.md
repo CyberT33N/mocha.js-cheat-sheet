@@ -145,7 +145,7 @@ npm run test-watch
 <br><br>
 
 # Execute other tests from inside of current test
-```bash
+```javascript
 // apple.test.js
 import internalTests from './internalTests.js'
 
