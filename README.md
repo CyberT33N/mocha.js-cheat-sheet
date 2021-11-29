@@ -453,6 +453,27 @@ describe('some test here..', ()=>{
 
 # global variables
 ```javascript
+// method #1 - this
+describe('Client Side Services', ()=> {
+  before(done=>{(async ()=>{
+    this.pptr = await new Init().getPPTR();
+  })().catch(e=>{log('client.test.mjs - BEFORE() - Error: ' + e);});});
+
+
+  it('Client Side test success - .finish-test should exist', async ()=>{
+    expect(
+        await pptr.page.waitForSelector('.finish-test', {
+          visible: true, timeout: 0,
+        }), // await pptr.page.waitForSelector('.finish-test', {
+    ).toBeTruthy(); // expect(
+  }); // it('Client Side test success - .finish-test should exist', async ()=>{
+}); // describe('Client Side Services', ()=>{
+
+
+
+
+
+// method #2 - global
 describe('Client Side Services', ()=> {
   before(done=>{(async ()=>{
     global.pptr = await new Init().getPPTR();
