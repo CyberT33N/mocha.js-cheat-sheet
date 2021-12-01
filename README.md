@@ -451,7 +451,9 @@ describe('some test here..', ()=>{
 
 <br><br>
 
-# global variables
+# global/closure variables
+- When you use this make sure that all of your describe blocks use arrow functions in oder that you not overwrite moch this logic
+
 ```javascript
 // method #1 - this
 describe('Client Side Services', ()=> {
