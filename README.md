@@ -667,6 +667,121 @@ export const getUserDetails = async (token)=>{ console.log( 'getUserDetails() - 
 
 
 
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+
+# root.test.js
+- This test file will be called for all other tests. You can include here functionality that should be done before each other tests by working with before, after, ...
+```javascript
+# root.test.js
+import glob from 'glob'
+
+import requirements from './requirements.js'
+const { setup, dismantel } = requirements
+
+const expression = `${process.cwd()}/test/integration/src/**/*.test.js`
+const paths = glob.sync(expression)
+
+const tests = []
+for (const path of paths) {
+    const test = await import(path)
+    tests.push(test.default)
+}
+
+describe('Integration tests - root.test.js', () => {
+    let server
+
+    before(async() => {
+        server = await setup()
+    })
+
+    after(() => dismantel(server))
+
+    for (const test of tests ) {
+        test(requirements)
+    }
+})
+```
+```javascript
+# test/integration/src/test/routes.test.js
+export default requirements => {
+    const { expect, _ } = requirements
+
+    describe('TEST]', () => {
+        it('test..', async() => {
+            // ..
+        })
+    })
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
