@@ -24,6 +24,56 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
 
 
 
+<br><br>
+ _____________________________________________________
+ _____________________________________________________
+<br><br>
+
+# package.json
+```javascript
+{
+  "name": "test",
+  "description": "test",
+  "author": "CyberT33N",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "keywords": [],
+  "scripts": {
+    "test": "npm run unit-test && npm run integration-test",
+    "integration-test": "mocha './test/integration/**/*.test.js' --recursive --exit --timeout 30000",
+    "unit-test": "mocha './test/unit/**/*.test.js' --recursive --exit --timeout 30000",
+  },
+  "mocha": {
+    "file": [
+      "./test/pretest.js"
+    ]
+  },
+  "engines": {
+    "node": ">=16.2.0",
+    "npm": ">=7.13.0"
+  },
+  "files": [
+    "src",
+    "test",
+    "app.js",
+    "server.js"
+  ]
+}
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <br><br>
