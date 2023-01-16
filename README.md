@@ -39,8 +39,8 @@ Beginner Tutorial: https://www.youtube.com/watch?v=oJWOmT5UZYw
   "keywords": [],
   "scripts": {
     "test": "npm run unit-test && npm run integration-test",
-    "integration-test": "mocha './test/integration/**/*.test.js' --recursive --exit --timeout 30000",
-    "unit-test": "mocha './test/unit/**/*.test.js' --recursive --exit --timeout 30000",
+    "integration-test": "mocha './test/integration/**/*.test.js' --recursive --exit --timeout 30000 maxDiffSize=999999",
+    "unit-test": "mocha './test/unit/**/*.test.js' --recursive --exit --timeout 30000 maxDiffSize=999999",
   },
   "mocha": {
     "file": [
