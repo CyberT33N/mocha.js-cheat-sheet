@@ -501,48 +501,26 @@ describe('some test here..', ()=>{
 
 <br><br>
 
-# global/closure variables
-- When you use this make sure that all of your describe blocks use arrow functions in oder that you not overwrite moch this logic
+# this context
+- When you use this make sure that all of your describe blocks use arrow functions in oder that you not overwrite any needed logic
 
 ```javascript
-// method #1 - this
-describe('Client Side Services', ()=> {
-  before(done=>{(async ()=>{
-    this.pptr = await new Init().getPPTR();
-  })().catch(e=>{log('client.test.mjs - BEFORE() - Error: ' + e);});});
+before(function (){
+this.test = 123
+})
 
-
-  it('Client Side test success - .finish-test should exist', async ()=>{
-    expect(
-        await pptr.page.waitForSelector('.finish-test', {
-          visible: true, timeout: 0,
-        }), // await pptr.page.waitForSelector('.finish-test', {
-    ).toBeTruthy(); // expect(
-  }); // it('Client Side test success - .finish-test should exist', async ()=>{
-}); // describe('Client Side Services', ()=>{
-
-
-
-
-
-// method #2 - global
-describe('Client Side Services', ()=> {
-  before(done=>{(async ()=>{
-    global.pptr = await new Init().getPPTR();
-  })().catch(e=>{log('client.test.mjs - BEFORE() - Error: ' + e);});});
-
-
-  it('Client Side test success - .finish-test should exist', async ()=>{
-    expect(
-        await pptr.page.waitForSelector('.finish-test', {
-          visible: true, timeout: 0,
-        }), // await pptr.page.waitForSelector('.finish-test', {
-    ).toBeTruthy(); // expect(
-  }); // it('Client Side test success - .finish-test should exist', async ()=>{
-}); // describe('Client Side Services', ()=>{
+it('should call sendAvro method with correct arguments',function (){
+    expect(this.test).to.be.equal(123)
+})
 ```
-
-
+- Works aswell with the pre mocha file in your package.jsonand the before block there:
+ ```
+ "mocha": {
+     "file": [
+       "./test/pretest.js"
+     ]
+   }
+ ```
 
 
 
